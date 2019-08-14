@@ -58,9 +58,9 @@ tidy_UP(data, ID, HP, Y)
 ## The function is currently defined as
 function (data, ID, HP, Y) 
 {
-    data.table::as.data.frame(setDT(data)[, `:=`(shp, cut(HP, 
-        unique(quantile(HP, seq(0, 1, by = 0.01))), labels = FALSE, 
-        include.lowest = TRUE)), by = .(ID, Y)])
+    as.data.frame(setDT(data)[, `:=`(shp, cut(HP, unique(quantile(HP, 
+        seq(0, 1, by = 0.01))), labels = FALSE, include.lowest = TRUE)), 
+        by = .(ID, Y)])
   }
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the

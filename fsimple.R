@@ -2,7 +2,7 @@
 #it's a purrpurr object 
 
 
-f <- function(x, y) {
+gatto <- function(x, y) {
   x + y
 }
 

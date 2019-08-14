@@ -1,10 +1,11 @@
 #tyding up stuff
 require(data.table)
 
-tidy_UP<- function(data,ID,HP,Y) {
+tidy_UP<- function(HP) {
 
-as.data.frame(setDT(data)[,shp := cut(HP, unique(quantile(HP, seq(0, 1, by= 0.01))),
-                             labels = FALSE, include.lowest = TRUE), by = .(ID,Y) ])
+
+  cut(HP, unique(quantile(HP, seq(0, 1, by= 0.01))),
+                             labels = FALSE, include.lowest = TRUE)
 
 }
 

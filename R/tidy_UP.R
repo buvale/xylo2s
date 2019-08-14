@@ -1,13 +1,15 @@
 #tyding up stuff
 require(data.table)
 
-tidy_UP<- function(HP) {
+tidy_UP<- function(data,HP,ID,Y) {
 
-
-  cut(HP, unique(quantile(HP, seq(0, 1, by= 0.01))),
-                             labels = FALSE, include.lowest = TRUE)
+     data %>%
+     group_by(!!Y,!!ID) %>%
+     mutate(shp := !!ntile(HP,100))
 
 }
 
-prompt(tidy_UP)
+
+
+
 

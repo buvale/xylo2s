@@ -8,12 +8,21 @@
 %%  ~~ A concise (1-5 lines) description of what the function does. ~~
 }
 \usage{
-tidy_UP(HP)
+tidy_UP(data, HP, ID, Y)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
+  \item{data}{
+%%     ~~Describe \code{data} here~~
+}
   \item{HP}{
 %%     ~~Describe \code{HP} here~~
+}
+  \item{ID}{
+%%     ~~Describe \code{ID} here~~
+}
+  \item{Y}{
+%%     ~~Describe \code{Y} here~~
 }
 }
 \details{
@@ -47,10 +56,10 @@ tidy_UP(HP)
 ##--	or do  help(data=index)  for the standard data sets.
 
 ## The function is currently defined as
-function (HP) 
+function (data, HP, ID, Y) 
 {
-    cut(HP, unique(quantile(HP, seq(0, 1, by = 0.01))), labels = FALSE, 
-        include.lowest = TRUE)
+    data \%>\% group_by(!(!Y), !(!ID)) \%>\% mutate(`:=`(shp, !(!ntile(HP, 
+        100))))
   }
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the

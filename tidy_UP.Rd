@@ -13,36 +13,33 @@ tidy_UP(data, HP, ID, Y)
 %- maybe also 'usage' for other objects documented here.
 \arguments{
   \item{data}{
-%%     ~~Describe \code{data} here~~
+%%     dataset with wood anatomical measures of cell traits with relative horizontal and vertical position
 }
   \item{HP}{
-%%     ~~Describe \code{HP} here~~
+%%     Horizontal position
 }
   \item{ID}{
-%%     ~~Describe \code{ID} here~~
+%%     TIndividual code for trees
 }
   \item{Y}{
-%%     ~~Describe \code{Y} here~~
+%%     Year of measurements
 }
 }
 \details{
 %%  ~~ If necessary, more details than the description above ~~
 }
 \value{
-%%  ~Describe the value returned
-%%  If it is a LIST, use
-%%  \item{comp1 }{Description of 'comp1'}
-%%  \item{comp2 }{Description of 'comp2'}
+%%  when a vector is defined it returnes the dataset with the relative position of each cell computed on the base of percentiles
 %% ...
 }
 \references{
-%% ~put references to the literature/web site here ~
+%% the full protocol is described in Buttò, Valentina, Sergio Rossi, Annie Deslauriers, and Hubert Morin. "Is size an issue of time? Relationship between the duration of xylem development and cell traits." Annals of botany (2019).
 }
 \author{
-%%  ~~who you are~~
+%%  Valentina Buttò
 }
 \note{
-%%  ~~further notes~~
+%%  the package is based
 }
 
 %% ~Make other sections like Warning with \section{Warning }{....} ~
@@ -56,9 +53,9 @@ tidy_UP(data, HP, ID, Y)
 ##--	or do  help(data=index)  for the standard data sets.
 
 ## The function is currently defined as
-function (data, HP, ID, Y) 
+function (data, HP, ID, Y)
 {
-    data \%>\% group_by(!(!Y), !(!ID)) \%>\% mutate(`:=`(shp, !(!ntile(HP, 
+    data \%>\% group_by(!(!Y), !(!ID)) \%>\% mutate(`:=`(shp, !(!ntile(HP,
         100))))
   }
 }

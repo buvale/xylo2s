@@ -13,4 +13,10 @@ require(dplyr)
   }
 
 
+  test6<-tidy_UP(test1,test1$HorizontalPosition,test1$SampleId)
+
+  test6
+
+  ggplot(test6, aes(HorizontalPosition, LumenArea, colour = SampleId)) + geom_point()
+  ggplot(test6, aes(shp, LumenArea, colour = SampleId)) + geom_point()
 
